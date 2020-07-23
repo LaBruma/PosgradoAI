@@ -10,11 +10,22 @@
 #
 # E[Z|X] = E[X+Y|X] = E[X|X] + E[Y|X] = X + E[Y] = X+1/2
 #
-# E[X|Z] = E[X|X+Y] = X?
+# E[X|Z] = E[X|X+Y] = Z/2 = (X+Y)/2
 #
 # E[XZ|X]= E[X(X+Y)|X] = E[XX|X] + E[XY|X] = X*E[X|X] + X*E[Y|X] = X^2 + X/2
 #
-# E[XZ|Z]= E[X(X+Y)|X+Y] = E[XX|X+Y] + E[XY|X+Y] = X*E[X|X+Y] + X*E[Y|X+Y] =
-## X^2 + X*Y
+# E[XZ|Z]= ZE[X|Z] = Z*Z/2 = Z^2/2 = (X+Y)^2/2 = (X^2+2XY+Y^2)/2
 #
-# Para mí en 1 y 3 tiré fruta...
+N=10000;
+
+X=rand(N,1)
+Y=rand(N,1)
+Z = X+Y;
+
+delta = 0.05;
+
+X_index = find(X<delta);
+Z_index = find(Z<delta);
+
+E_Z_dado_X=mean(Z(X_index));
+E_X_dado_Z=mean(X(Z_index));
