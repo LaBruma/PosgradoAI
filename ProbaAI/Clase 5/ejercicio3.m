@@ -1,3 +1,4 @@
+
 # Ejercicio 3
 #===============================
 #
@@ -57,4 +58,10 @@ end
 
  # Los resultados indican que a partir de que 6 personas pueden identificar la 
  # bebida Y entro dentro del intervalo de confianza de la hipótesis (95%)
+ 
+ 
+ # Salía con esto...
+ 
+ 1-binocdf(6,10,1/3)
+ 
  
