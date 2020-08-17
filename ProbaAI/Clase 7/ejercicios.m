@@ -7,6 +7,9 @@ k=3;
 
 p_item_a = nchoosek(40, 2) * nchoosek(60, 1)/nchoosek(100, 3);
 
+# Simulación
+#-----------
+
 rand('seed',1234);
 
 n=1000; #
