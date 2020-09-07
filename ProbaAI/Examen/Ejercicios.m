@@ -38,6 +38,7 @@ varianza = n*p_falla*(1-p_falla);
 
 #item (c)
 #--------
+p_falla = 0.01; # Probabilidad de falla de la máquina
 
 % numero de ensayos
 N = 5000;
@@ -47,14 +48,15 @@ n=68;
 % numero de defectuosos, vale 1 cuando es ceca
 n_defectuosos_vector = zeros(N,1);
 
-% hacemos N ensayos, en cada ensayo tiramos la moneda 10 veces
-% y vemos si al menos 3 es ceca
+% hacemos N ensayos, en cada ensayo verificamos todos los fósforos
 for i = 1:N
 
   % 68 sacadas por ensayo (todos los de la caja)
   for j = 1:n
 
     if(rand() < p_falla)
+      # Le sumo a ese experimento la cantidad de fósforos defectuosos (por eso
+      # indexamos en i)
       n_defectuosos_vector(i) = n_defectuosos_vector(i) + 1;
     end
 
@@ -193,23 +195,19 @@ mu_h0 = 45;
 % dispersion (dato)
 sigma = 4;
 
-% el intervalo de confianza de 95% teorico es:
-mu_min_teorico = mu - 1.96*sigma/sqrt(N);
-mu_max_teorico = mu + 1.96*sigma/sqrt(N);
-
-% nivel de confianza del intervalo
-confianza = 0;
+% Criterio de aceptación de hipótesis, para aceptar debe ser mayor (alpha)/2
+aceptacion = 0;
 
 for i=1:n
 
     % Generamos la distribucion en función de la hipótesis nula
     X = sigma/sqrt(N)*randn(N,1) + mu_h0;
 
-    % Verificamos cuántos valores caen en el intervalo de confianza
-    confianza = confianza + (1/(n*N)) * sum(X>=mu_min_teorico & X<=mu_max_teorico);
+    % Verificamos cuántos valores superan la media muestreal
+    aceptacion = aceptacion + (1/(n*N)) * sum(X >= mu);
 
 end
 
 % Muestras que caerían en el intervalo
-muestras_en_el_intervalo = confianza
-muestras_minimas_requeridas = 0.5
+aceptacion_simulada = aceptacion;
+umbral_de_aceptacion = 0.05/2;
