@@ -1,1 +1,2 @@
+Pool Vs No Pool: https://colab.research.google.com/drive/1q4Otdl2rSPMQqo3ohNRVrjpQENY2TSdA#scrollTo=vLMhXOBSMgiU
 Data augmentation: https://colab.research.google.com/drive/1gNUqPbxBjRQG2iLURantpVHzfTKUGLqB#scrollTo=gnz3-c4GTXm9
