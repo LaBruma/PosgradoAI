@@ -1,3 +1,0 @@
-Capas convolucionales: https://colab.research.google.com/drive/155AbaUfgG65EjM_63earDbfNG0oOHB3-
-Red CNN simple (mnist): https://colab.research.google.com/drive/1m4Icxvm0ZQ8dqou8QH3K9DS5azr_NTyD#scrollTo=XudgNHV8p8L2
-Redes neuronales convolucionales (Aplicación): https://colab.research.google.com/drive/1UFfC541Zo_EP7o1XdOA6mUux1cXqq6Nu
